@@ -19,8 +19,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Elegant Flora Boutique",
-  description: "Beautiful AI-powered website creation platform",
+  title: "Customeo - Your Feedback, Our Fuel for Growth",
+  description: "Transform user frustrations into actionable improvements with transparent feedback management",
 };
 
 export default function RootLayout({

@@ -1,59 +1,92 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ============================================
+   CUSTOMEO DESIGN SYSTEM - Pixel-Perfect Replication
+   Reference: ai-generated-preview.png
+   ============================================
+
+   EXTRACTED VISUAL SPECIFICATIONS:
+
+   COLOR PALETTE (Exact Hex → HSL):
+   - Primary Blue: #0D6EFD (211° 97% 52%)
+   - Background Gray: #F8F9FA (210° 17% 98%)
+   - Text Dark: #1A1A1A (0° 0% 10%)
+   - Text Medium: #6C757D (210° 11% 46%)
+   - White Cards: #FFFFFF (0° 0% 100%)
+   - Accent Light Blue: #E3F2FF (211° 100% 94%)
+
+   TYPOGRAPHY:
+   - Font Family: Inter (Google Fonts)
+   - Hero Heading: 44-48px, font-weight: 700
+   - Section Heading: 28-32px, font-weight: 600
+   - Body Text: 15-16px, font-weight: 400
+   - Button Text: 15px, font-weight: 500
+
+   SPACING SYSTEM:
+   - Card Padding: 24-32px
+   - Element Spacing: 16-24px
+   - Section Gaps: 48-64px
+
+   COMPONENT STYLES:
+   - Border Radius: 12px (cards), 24px (buttons), 8px (inputs)
+   - Box Shadow: 0 2px 8px rgba(0,0,0,0.08)
+   - Button Padding: 10px 24px
+
+   ============================================ */
 
 :root {
-  /* Pure white background with crisp black text */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 0%;
+  /* Customeo Brand Colors - From Design Reference */
+  --background: 210 17% 98%;        /* #F8F9FA - Light gray-blue background */
+  --foreground: 0 0% 10%;           /* #1A1A1A - Dark text */
 
-  /* Clean white cards with black text */
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 0%;
+  /* Card System */
+  --card: 0 0% 100%;                /* #FFFFFF - White cards */
+  --card-foreground: 0 0% 10%;      /* #1A1A1A - Dark text on cards */
 
-  /* Popovers with white background */
+  /* Popover System */
   --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 0%;
+  --popover-foreground: 0 0% 10%;
 
-  /* Primary: Black with white text */
-  --primary: 0 0% 0%;
-  --primary-foreground: 0 0% 100%;
+  /* Primary: Customeo Blue - #0D6EFD */
+  --primary: 211 97% 52%;           /* Primary brand blue */
+  --primary-foreground: 0 0% 100%;  /* White text on blue */
 
-  /* Secondary: Light gray background with black text */
+  /* Secondary: Light Gray Background */
   --secondary: 0 0% 97%;
-  --secondary-foreground: 0 0% 0%;
+  --secondary-foreground: 0 0% 10%;
 
-  /* Muted: Subtle gray with darker text */
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 40%;
+  /* Muted: Medium Gray Text - #6C757D */
+  --muted: 210 17% 96%;
+  --muted-foreground: 210 11% 46%;  /* #6C757D */
 
-  /* Accent: Light gray */
-  --accent: 0 0% 96%;
-  --accent-foreground: 0 0% 0%;
+  /* Accent: Light Blue - #E3F2FF */
+  --accent: 211 100% 94%;           /* Light blue accent */
+  --accent-foreground: 211 97% 52%; /* Primary blue text */
 
-  /* Destructive: Clean red */
-  --destructive: 0 70% 50%;
+  /* Destructive: Error Red */
+  --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  /* Borders: Subtle gray */
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
-  --ring: 0 0% 0%;
+  /* Borders & Inputs */
+  --border: 0 0% 90%;               /* Subtle gray borders */
+  --input: 0 0% 92%;                /* Input field borders */
+  --ring: 211 97% 52%;              /* Focus ring matches primary */
 
-  /* Minimal rounded corners */
-  --radius: 0.375rem;
+  /* Border Radius - From Design Reference */
+  --radius: 0.75rem;                /* 12px - Card radius */
+  --radius-button: 1.5rem;          /* 24px - Button radius */
+  --radius-input: 0.5rem;           /* 8px - Input radius */
 
-  /* Sidebar: Clean white with black text */
+  /* Sidebar (using primary blue theme) */
   --sidebar-background: 0 0% 100%;
-  --sidebar-foreground: 0 0% 0%;
-  --sidebar-primary: 0 0% 0%;
+  --sidebar-foreground: 0 0% 10%;
+  --sidebar-primary: 211 97% 52%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 0 0% 96%;
-  --sidebar-accent-foreground: 0 0% 0%;
+  --sidebar-accent: 211 100% 94%;
+  --sidebar-accent-foreground: 211 97% 52%;
   --sidebar-border: 0 0% 90%;
-  --sidebar-ring: 0 0% 0%;
+  --sidebar-ring: 211 97% 52%;
 }
 
 .dark {
@@ -168,28 +201,152 @@ All colors MUST be HSL.
   border-color: hsl(var(--border));
 }
 
+/* ============================================
+   GLOBAL STYLES - Typography & Element Defaults
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-feature-settings: "rlig" 1, "calt" 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* Minimal, clean typography */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  letter-spacing: -0.025em;
+/* Typography Scale - From Design Reference */
+h1 {
+  font-size: 2.75rem;        /* 44px */
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem 0;
   color: hsl(var(--foreground));
 }
 
-/* Clean button styles */
-button {
-  font-weight: 500;
+h2 {
+  font-size: 1.875rem;       /* 30px */
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  margin: 0 0 0.875rem 0;
+  color: hsl(var(--foreground));
 }
 
-/* Subtle shadows for depth */
+h3 {
+  font-size: 1.375rem;       /* 22px */
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 0.75rem 0;
+  color: hsl(var(--foreground));
+}
+
+h4 {
+  font-size: 1.125rem;       /* 18px */
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 0.625rem 0;
+  color: hsl(var(--foreground));
+}
+
+h5 {
+  font-size: 1rem;           /* 16px */
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0 0 0.5rem 0;
+  color: hsl(var(--foreground));
+}
+
+h6 {
+  font-size: 0.875rem;       /* 14px */
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0 0 0.5rem 0;
+  color: hsl(var(--foreground));
+}
+
+p {
+  margin: 0 0 1rem 0;
+  font-size: 0.9375rem;      /* 15px */
+  line-height: 1.6;
+  color: hsl(var(--foreground));
+}
+
+a {
+  color: hsl(var(--primary));
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: hsl(var(--primary) / 0.8);
+}
+
+/* Form Elements - Default Styling */
+input, textarea, select {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9375rem;
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--card));
+  border: 1px solid hsl(var(--input));
+  border-radius: var(--radius-input);
+  padding: 0.625rem 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: hsl(var(--ring));
+  box-shadow: 0 0 0 3px hsl(var(--ring) / 0.1);
+}
+
+input::placeholder, textarea::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+
+/* Button Reset & Defaults */
+button {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9375rem;       /* 15px */
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Card Styles - From Design Reference */
+.card {
+  background-color: hsl(var(--card));
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+}
+
+/* Shadow System - From Design Reference */
+.shadow-card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
 .shadow-sm {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
@@ -200,4 +357,29 @@ button {
 
 .shadow-md {
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Utility Classes for Design System */
+.text-muted {
+  color: hsl(var(--muted-foreground));
+}
+
+.bg-accent {
+  background-color: hsl(var(--accent));
+}
+
+.border-radius-card {
+  border-radius: var(--radius);
+}
+
+.border-radius-button {
+  border-radius: var(--radius-button);
+}
+
+.border-radius-input {
+  border-radius: var(--radius-input);
 }
